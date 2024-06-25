@@ -7,16 +7,20 @@ import { ListBlocFoyerComponent } from './views/list-bloc-foyer/list-bloc-foyer.
 import { ListChambreBlocComponent } from './views/list-chambre-bloc/list-chambre-bloc.component';
 import { ListEtudiantComponent } from './views/list-etudiant/list-etudiant.component';
 import { ListUniversiteComponent } from './views/list-universite/list-universite.component';
+import { AjouterAgentComponent } from './views/ajouter-agent/ajouter-agent.component';
 
 const routes: Routes = [
-  { path: '', component: AdminLayoutComponent, children:[
-    { path: 'list-foyer', component: ListFoyerComponent },
-    { path: 'list-university', component: ListUniversiteComponent },
-    { path: 'list-bloc-foyer', component: ListBlocFoyerComponent },
-    { path: 'list-chambre-bloc', component: ListChambreBlocComponent },
-    { path: 'list-reservation', component: ListReservationComponent },
-    { path: 'list-etudiant', component: ListEtudiantComponent}
-  ] }
+  {
+    path: '', component: AdminLayoutComponent, children: [
+      { path: 'list-foyer', component: ListFoyerComponent },
+      { path: 'list-university', component: ListUniversiteComponent },
+      { path: 'list-bloc-foyer', component: ListBlocFoyerComponent },
+      { path: 'list-chambre-bloc', component: ListChambreBlocComponent },
+      { path: 'list-reservation', component: ListReservationComponent },
+      { path: 'list-etudiant', component: ListEtudiantComponent },
+      { path: 'ajouter-agent', component: AjouterAgentComponent }
+    ]
+  }
 ];
 
 @NgModule({

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
  
 import { AdminModule } from './modules/admin/admin.module';
- 
 import { HomeComponent } from './home/layouts/home.component';
 import { Error404Component } from './home/views/error404/error404.component';
 import { SignInComponent } from './home/views/sign-in/sign-in.component';
@@ -14,8 +13,7 @@ import { SignUpComponent } from './home/views/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './home/views/forgot-password/forgot-password.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ResetPasswordComponent } from './home/views/reset-password/reset-password.component';
-
-@NgModule({
+ @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
@@ -23,7 +21,7 @@ import { ResetPasswordComponent } from './home/views/reset-password/reset-passwo
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent,
+    ResetPasswordComponent
 
   ],
   imports: [

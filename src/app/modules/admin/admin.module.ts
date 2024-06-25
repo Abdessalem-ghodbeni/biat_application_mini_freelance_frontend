@@ -13,6 +13,7 @@ import { ListEtudiantComponent } from './views/list-etudiant/list-etudiant.compo
 import { ListReservationComponent } from './views/list-reservation/list-reservation.component';
 import { RechercheEtudiantPipe } from 'src/app/core/pipes/Etudiant/recherche-etudiant.pipe';
 import { RechercheUniversitePipe } from 'src/app/core/pipes/Universite/recherche-universite.pipe';
+import { AjouterAgentComponent } from './views/ajouter-agent/ajouter-agent.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { RechercheUniversitePipe } from 'src/app/core/pipes/Universite/recherche
     ListEtudiantComponent,
     ListReservationComponent,
     RechercheEtudiantPipe,
-    RechercheUniversitePipe
+    RechercheUniversitePipe,
+    AjouterAgentComponent
   ],
   imports: [
     CommonModule,
