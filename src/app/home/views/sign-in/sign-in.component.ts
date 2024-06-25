@@ -53,10 +53,12 @@ export class SignInComponent {
         localStorage.setItem("state", "0");
 
         if (res.userDetails.role === Role.ADMIN) {
-          this.router.navigateByUrl('/admin/list-etudiant');}
-        // } else {
-        //   this.router.navigateByUrl('/etudiant/etudiant-profile');
-        // }
+          this.router.navigateByUrl('/admin/ajouter-agent');}
+        // } 
+        else if(res.userDetails.role === Role.AGENT){this.router.navigateByUrl('/agent');}
+        else {
+          this.router.navigateByUrl('/client/client-profile');
+        }
       }
     }, err => {
       Swal.fire({

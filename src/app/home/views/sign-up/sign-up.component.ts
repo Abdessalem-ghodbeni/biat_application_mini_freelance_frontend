@@ -66,7 +66,7 @@ export class SignUpComponent {
       formData.append('image', this.selectedFile, this.selectedFile.name);
     }
 
-    this.authenticationService.registerEtudiant(formData).subscribe(
+    this.authenticationService.registerAgent(formData).subscribe(
       (response: any) => {
         Swal.fire({
           icon: 'success',
@@ -75,7 +75,7 @@ export class SignUpComponent {
           showConfirmButton: false,
           timer: 1500
         });
-        this.router.navigate(['/signin']);
+        // this.router.navigate(['/signin']);
       },
       (error: any) => {
         Swal.fire({

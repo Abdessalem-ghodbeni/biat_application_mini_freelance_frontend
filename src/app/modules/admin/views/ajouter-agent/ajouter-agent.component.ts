@@ -20,7 +20,7 @@ export class AjouterAgentComponent {
     prenom: new FormControl('', [Validators.required, Validators.minLength(3)]),
     cin: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
     image: new FormControl('', [Validators.required]),
-    universite: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    numeroTelephone: new FormControl('', [Validators.required, Validators.minLength(3)]),
     dateNaissance: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)])
@@ -57,7 +57,7 @@ export class AjouterAgentComponent {
     addValueToFormData('nom', this.registerForm.get('nom')?.value);
     addValueToFormData('prenom', this.registerForm.get('prenom')?.value);
     addValueToFormData('cin', this.registerForm.get('cin')?.value);
-    addValueToFormData('universite', this.registerForm.get('universite')?.value);
+    addValueToFormData('numeroTelephone', this.registerForm.get('numeroTelephone')?.value);
     addValueToFormData('dateNaissance', this.registerForm.get('dateNaissance')?.value);
     addValueToFormData('email', this.registerForm.get('email')?.value);
     addValueToFormData('password', this.registerForm.get('password')?.value);
@@ -66,16 +66,16 @@ export class AjouterAgentComponent {
       formData.append('image', this.selectedFile, this.selectedFile.name);
     }
 
-    this.authenticationService.registerEtudiant(formData).subscribe(
+    this.authenticationService.registerAgent(formData).subscribe(
       (response: any) => {
         Swal.fire({
           icon: 'success',
           title: 'Inscription réussie',
-          text: 'Vous pouvez maintenant vous connecter',
+          text: 'Vous pouvez voir la liste des agents',
           showConfirmButton: false,
           timer: 1500
         });
-        this.router.navigate(['/signin']);
+        this.router.navigate(['admin/list-agents']);
       },
       (error: any) => {
         Swal.fire({

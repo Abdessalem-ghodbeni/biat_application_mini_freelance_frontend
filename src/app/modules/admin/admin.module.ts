@@ -14,6 +14,7 @@ import { ListReservationComponent } from './views/list-reservation/list-reservat
 import { RechercheEtudiantPipe } from 'src/app/core/pipes/Etudiant/recherche-etudiant.pipe';
 import { RechercheUniversitePipe } from 'src/app/core/pipes/Universite/recherche-universite.pipe';
 import { AjouterAgentComponent } from './views/ajouter-agent/ajouter-agent.component';
+import { ListeAgentsComponent } from './views/liste-agents/liste-agents.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AjouterAgentComponent } from './views/ajouter-agent/ajouter-agent.compo
     ListReservationComponent,
     RechercheEtudiantPipe,
     RechercheUniversitePipe,
-    AjouterAgentComponent
+    AjouterAgentComponent,
+    ListeAgentsComponent
   ],
   imports: [
     CommonModule,

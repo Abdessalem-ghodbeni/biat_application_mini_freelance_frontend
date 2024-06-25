@@ -11,8 +11,8 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
-  registerEtudiant(formData: FormData) {
-    return this.http.post(`${environment.baseUrl}/auth/registerEtudiant`, formData);
+  registerAgent(formData: FormData) {
+    return this.http.post(`${environment.baseUrl}/auth/registerAgent`, formData);
   }
 
   login(user: LoginPayload) {

@@ -4,13 +4,13 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'rechercheUniversite'
 })
 export class RechercheUniversitePipe implements PipeTransform {
-
-  transform(value: any[], term: string): any[] {
-    if (!term) {
-      return value;
-    } else {
-      return value.filter(item => item.nomUniversite.toLowerCase().includes(term.toLowerCase()));
+  transform(agents: any[], searchTerm: string): any[] {
+    if (!searchTerm) {
+      return agents;
     }
-  }
 
+    return agents.filter((agent) =>
+      agent.nom.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
 }

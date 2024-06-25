@@ -8,6 +8,7 @@ import { ListChambreBlocComponent } from './views/list-chambre-bloc/list-chambre
 import { ListEtudiantComponent } from './views/list-etudiant/list-etudiant.component';
 import { ListUniversiteComponent } from './views/list-universite/list-universite.component';
 import { AjouterAgentComponent } from './views/ajouter-agent/ajouter-agent.component';
+import { ListeAgentsComponent } from './views/liste-agents/liste-agents.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
       { path: 'list-bloc-foyer', component: ListBlocFoyerComponent },
       { path: 'list-chambre-bloc', component: ListChambreBlocComponent },
       { path: 'list-reservation', component: ListReservationComponent },
-      { path: 'list-etudiant', component: ListEtudiantComponent },
+      { path: 'list-agents', component: ListeAgentsComponent },
       { path: 'ajouter-agent', component: AjouterAgentComponent }
     ]
   }
