@@ -87,4 +87,9 @@ export class AjouterAgentComponent {
       }
     );
   }
+  
+
+  Clear(){
+    this.registerForm.reset();
+  }
 }

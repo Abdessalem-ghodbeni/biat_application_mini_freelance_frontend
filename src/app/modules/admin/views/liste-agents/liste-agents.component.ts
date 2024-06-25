@@ -15,6 +15,7 @@ export class ListeAgentsComponent {
 
   listAgents: any[] = [];
   // foyer!:Foyer;
+  selectedIdAgent!:number;
   // selectedUniversite: Universite | null = null;
    selectedAgenceId: number | null = null;
   UniversiteForm!: FormGroup;
@@ -100,55 +101,58 @@ export class ListeAgentsComponent {
   // }
  
 
-  // affecterFoyerAUniversite() {
-  //   if (this.selectedFoyerId !== null && this.selectedUniversite !== null) {
-  //     this.universiteService.affecterFoyerAUniversite(this.selectedFoyerId, this.selectedUniversite.nomUniversite).subscribe((res: any) => {
-  //       const Toast = Swal.mixin({
-  //         toast: true,
-  //         position: 'top-end',
-  //         showConfirmButton: false,
-  //         timer: 1500,
-  //         timerProgressBar: true,
-  //         didOpen: (toast) => {
-  //           toast.addEventListener('mouseenter', Swal.stopTimer)
-  //           toast.addEventListener('mouseleave', Swal.resumeTimer)
-  //         }
-  //       })
+  affecterAgentToUniversity() {
+    if (this.selectedIdAgent !== null && this.selectedAgenceId !== null) {
+      const listeAgentIds=[];
+      listeAgentIds.push(this.selectedIdAgent);
+      this.agentService.affecterAgentTOAgence(this.selectedAgenceId,listeAgentIds).subscribe((res: any) => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
         
-  //       Toast.fire({
-  //         icon: 'success',
-  //         title: 'Le foyer a été affecté avec succès'
-  //       })
-  //       this.getAllUniversites();
-  //     });
-  //   } else {
-  //     console.error('Foyer ID or Université is not selected');
-  //   }
-  // }
+        Toast.fire({
+          icon: 'success',
+          title: 'L agent a été affecté avec succès'
+        })
+        this.getAllAgents();
+      });
+    } else {
+      console.error('agent ID or agence id is not selected');
+    }
+  }
   
 
-  // desaffecterFoyerAUniversite(idUniversite:number){
-  //   this.universiteService.desaffecterFoyerAUniversite(idUniversite).subscribe((res:any) => {
-  //     const Toast = Swal.mixin({
-  //       toast: true,
-  //       position: 'top-end',
-  //       showConfirmButton: false,
-  //       timer: 1500,
-  //       timerProgressBar: true,
-  //       didOpen: (toast) => {
-  //         toast.addEventListener('mouseenter', Swal.stopTimer)
-  //         toast.addEventListener('mouseleave', Swal.resumeTimer)
-  //       }
-  //     })
+  desaffecterAgentFromAgence(id:number){
+    
+    this.agentService.desaffecterAgentFromAgence(id).subscribe((res:any) => {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
       
-  //     Toast.fire({
-  //       icon: 'success',
-  //       title: 'Le foyer a été désaffecté avec succès'
-  //     })
+      Toast.fire({
+        icon: 'success',
+        title: 'Le agent a été désaffecté avec succès'
+      })
 
-  //   this.getAllUniversites()
-  //   })
-  // }
+    this.getAllAgents()
+    })
+  }
   
   // deleteUniversite(id:number){
   //   this.universiteService.deleteUniversite(id).subscribe((res:any) => {
@@ -207,5 +211,14 @@ export class ListeAgentsComponent {
       }
     });
   }
+
+
+
+  openAffectModal(id:number) {
+    this.selectedIdAgent = id;
+   
+  }
+
+
 
 }

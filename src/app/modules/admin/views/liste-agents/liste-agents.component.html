@@ -147,16 +147,21 @@
                   <span
                     *ngIf="agent.agence && agent.agence.nom; else affecterFoyer"
                   >
-                    <!-- (click)="desaffecterFoyerAUniversite(agent.id)" -->
-                    <a class="btn btn-sm btn-danger-soft mb-0">Désaffecter</a>
+                    <!--  -->
+                    <a
+                      (click)="desaffecterAgentFromAgence(agent.id)"
+                      class="btn btn-sm btn-danger-soft mb-0"
+                      >Désaffecter</a
+                    >
                   </span>
 
-                  <!-- (click)="openAffectModal(universite)" -->
+                  <!--" -->
                   <ng-template #affecterFoyer>
                     <a
                       class="btn btn-sm btn-info-soft mb-0 me-1"
                       data-bs-toggle="modal"
                       data-bs-target="#getNewcard"
+                      (click)="openAffectModal(agent.id)"
                       >Affecter</a
                     >
                   </ng-template>
@@ -242,32 +247,7 @@
     </div>
 
  
-    <div class="modal fade" id="getNewcard" tabindex="-1" aria-labelledby="addNewcardLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-dark">
-                    <h5 class="modal-title text-white" id="addNewcardLabel">Affecter université à un foyer</h5>
-                    <button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="modal"
-                        aria-label="Close"><i class="bi bi-x-lg"></i></button>
-                </div>
-                <div class="modal-body">
-                    <form class="row text-start g-3">
-                    
-                        <div class="col-12">
-                            <label class="form-label">Foyer <span class="text-danger">*</span></label>
-                            <select class="border-0 bg-light rounded-end ps-1 form-select border-0 z-index-9" [(ngModel)]="selectedFoyerId" name="selectedFoyerId">
-                                <option value="" disabled>Selectionner un foyer</option>
-                                <option *ngFor="let foyer of listFoyerWithoutUniversite" [value]="foyer.idFoyer">{{ foyer.nomFoyer }}</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" data-bs-dismiss="modal" aria-label="Close"
-                        class="btn btn-success my-0" [disabled]="selectedFoyerId === null || selectedUniversite === null" (click)="affecterFoyerAUniversite()">Affecter</button>
-                </div>
-            </div>
-        </div>
+ 
     </div> -->
 
   <div
@@ -296,7 +276,7 @@
           <form class="row text-start g-3">
             <div class="col-12">
               <label class="form-label"
-                >Foyer <span class="text-danger">*</span></label
+                >Agence <span class="text-danger">*</span></label
               >
               <select
                 class="border-0 bg-light rounded-end ps-1 form-select border-0 z-index-9"
@@ -317,9 +297,9 @@
             data-bs-dismiss="modal"
             aria-label="Close"
             class="btn btn-success my-0"
-            [disabled]="selectedAgenceId === null"
+            [disabled]="selectedAgenceId === null || selectedIdAgent === null"
+            (click)="affecterAgentToUniversity()"
           >
-            <!-- (click)="affecterFoyerAUniversite()" -->
             Affecter
           </button>
         </div>

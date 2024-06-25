@@ -29,4 +29,26 @@ deleteAgent(id:number){
   );
 }
 
+  
+affecterAgentTOAgence(agenceId:number,agentIds: number[]){
+  return this.http.put(`${environment.baseUrl}/agence/${agenceId}/assign-agents`, agentIds) .pipe(
+    catchError((error) => {
+      console.log('errrr', error);
+      throw error;
+    })
+  );
+
+}
+
+  
+desaffecterAgentFromAgence(agentId:number){
+  return this.http.put(`${environment.baseUrl}/agent/dassign/${agentId}`,{}).pipe(
+    catchError((error) => {
+      console.log('errrr', error);
+      throw error;
+    })
+  );
+
+}
+
 }
