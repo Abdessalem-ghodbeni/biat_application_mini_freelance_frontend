@@ -79,7 +79,12 @@ totaleAcount!:number;
     console.log("Selected Agence ID:", this.agentId2);
   }
 
-
+  updateCounter() {
+    const purecounterElements = document.querySelectorAll('.purecounter');
+    purecounterElements.forEach(element => {
+      element.setAttribute('data-purecounter-end', this.totaleAcount.toString());
+    });
+  }
   lancerComparaison() {
     if (this.agentId1 && this.agentId2) {
       this.loadAgentProductivityData();
