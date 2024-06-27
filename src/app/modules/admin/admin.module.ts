@@ -15,6 +15,7 @@ import { RechercheEtudiantPipe } from 'src/app/core/pipes/Etudiant/recherche-etu
 import { RechercheUniversitePipe } from 'src/app/core/pipes/Universite/recherche-universite.pipe';
 import { AjouterAgentComponent } from './views/ajouter-agent/ajouter-agent.component';
 import { ListeAgentsComponent } from './views/liste-agents/liste-agents.component';
+import { StatistiquesComponent } from './views/statistiques/statistiques.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ListeAgentsComponent } from './views/liste-agents/liste-agents.componen
     RechercheEtudiantPipe,
     RechercheUniversitePipe,
     AjouterAgentComponent,
-    ListeAgentsComponent
+    ListeAgentsComponent,
+    StatistiquesComponent
   ],
   imports: [
     CommonModule,

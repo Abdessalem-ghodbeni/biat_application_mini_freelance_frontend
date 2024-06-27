@@ -13,6 +13,7 @@ import { SignUpComponent } from './home/views/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './home/views/forgot-password/forgot-password.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ResetPasswordComponent } from './home/views/reset-password/reset-password.component';
+ 
  @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { ResetPasswordComponent } from './home/views/reset-password/reset-passwo
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+ 
 
   ],
   imports: [

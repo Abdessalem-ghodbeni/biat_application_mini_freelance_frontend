@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { AgentProductivity } from '../../models/AgentProductivity ';
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +51,21 @@ desaffecterAgentFromAgence(agentId:number){
   );
 
 }
+
+getAgentProductivityComparison(agentId1: number, agentId2: number){
+  return this.http.get<AgentProductivity[]>(`${environment.baseUrl}/agent/productivity-comparison/${agentId1}/${agentId2}`);
+}
+
+
+geAgentByIdAgence(idAgence: number){
+  return this.http.get<any>(`${environment.baseUrl}/agent/by-agence/${idAgence}`).pipe(
+    catchError((error) => {
+      console.log('errrr', error);
+      throw error;
+    })
+  );
+}
+
+
 
 }

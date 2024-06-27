@@ -55,7 +55,7 @@ export class SignInComponent {
         if (res.userDetails.role === Role.ADMIN) {
           this.router.navigateByUrl('/admin/ajouter-agent');}
         // } 
-        else if(res.userDetails.role === Role.AGENT){this.router.navigateByUrl('/agent');}
+        else if(res.userDetails.role === Role.AGENT){this.router.navigateByUrl('/agent/demande_chequier');}
         else {
           this.router.navigateByUrl('/client/client-profile');
         }
