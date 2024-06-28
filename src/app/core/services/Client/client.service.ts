@@ -12,7 +12,7 @@ export class ClientService {
 
   
   getClient() {
-    return this.http.get<any[]>(`${environment.baseUrl}/client/all`) .pipe(
+    return this.http.get<any[]>(`${environment.baseUrl}/client/all`).pipe(
       catchError((error) => {
         console.log('errrr', error);
         throw error;

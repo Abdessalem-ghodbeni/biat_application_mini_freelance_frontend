@@ -27,4 +27,17 @@ export class CompteService {
       })
     );
 }
+
+
+getcompteByType() {
+  return this.http.get<any>(`${environment.baseUrl}/compte/NbCompteByType`) .pipe(
+    catchError((error) => {
+      console.log('errrr', error);
+      throw error;
+    })
+  );
+}
+
+
+
 }
