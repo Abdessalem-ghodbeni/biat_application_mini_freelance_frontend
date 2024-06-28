@@ -17,6 +17,10 @@ import { AjouterAgentComponent } from './views/ajouter-agent/ajouter-agent.compo
 import { ListeAgentsComponent } from './views/liste-agents/liste-agents.component';
 import { StatistiquesComponent } from './views/statistiques/statistiques.component';
 import { StatistiqueCompteAgenceComponent } from './views/statistique-compte-agence/statistique-compte-agence.component';
+import { AjouterAgenceComponent } from './views/ajouter-agence/ajouter-agence.component';
+import { ListAgenceComponent } from './views/list-agence/list-agence.component';
+import { DetailsAgenceComponent } from './views/details-agence/details-agence.component';
+import { UpdateAgenceComponent } from './views/update-agence/update-agence.component';
 
 
 @NgModule({
@@ -33,7 +37,11 @@ import { StatistiqueCompteAgenceComponent } from './views/statistique-compte-age
     AjouterAgentComponent,
     ListeAgentsComponent,
     StatistiquesComponent,
-    StatistiqueCompteAgenceComponent
+    StatistiqueCompteAgenceComponent,
+    AjouterAgenceComponent,
+    ListAgenceComponent,
+    DetailsAgenceComponent,
+    UpdateAgenceComponent
   ],
   imports: [
     CommonModule,

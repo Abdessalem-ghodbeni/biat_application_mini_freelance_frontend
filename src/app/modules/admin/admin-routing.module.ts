@@ -2,31 +2,33 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminLayoutComponent } from './layout/admin-layout.component';
 import { ListFoyerComponent } from './views/list-foyer/list-foyer.component';
-import { ListReservationComponent } from './views/list-reservation/list-reservation.component';
-import { ListBlocFoyerComponent } from './views/list-bloc-foyer/list-bloc-foyer.component';
-import { ListChambreBlocComponent } from './views/list-chambre-bloc/list-chambre-bloc.component';
-import { ListEtudiantComponent } from './views/list-etudiant/list-etudiant.component';
-import { ListUniversiteComponent } from './views/list-universite/list-universite.component';
+
 import { AjouterAgentComponent } from './views/ajouter-agent/ajouter-agent.component';
 import { ListeAgentsComponent } from './views/liste-agents/liste-agents.component';
 import { StatistiquesComponent } from './views/statistiques/statistiques.component';
+import { AjouterAgenceComponent } from './views/ajouter-agence/ajouter-agence.component';
+import { ListAgenceComponent } from './views/list-agence/list-agence.component';
+import { DetailsAgenceComponent } from './views/details-agence/details-agence.component';
+import { UpdateAgenceComponent } from './views/update-agence/update-agence.component';
 
 const routes: Routes = [
   {
-    path: '', component: AdminLayoutComponent, children: [
-      { path: 'list-foyer', component: ListFoyerComponent },
-      { path: 'list-university', component: ListUniversiteComponent },
-      { path: 'list-bloc-foyer', component: ListBlocFoyerComponent },
-      { path: 'list-chambre-bloc', component: ListChambreBlocComponent },
+    path: '',
+    component: AdminLayoutComponent,
+    children: [
+      { path: 'update-agence/:id', component: UpdateAgenceComponent },
+      { path: 'details-agence/:id', component: DetailsAgenceComponent },
+      { path: 'list-agence', component: ListAgenceComponent },
+      { path: 'ajouter-agence', component: AjouterAgenceComponent },
       { path: 'statistique', component: StatistiquesComponent },
       { path: 'list-agents', component: ListeAgentsComponent },
-      { path: 'ajouter-agent', component: AjouterAgentComponent }
-    ]
-  }
+      { path: 'ajouter-agent', component: AjouterAgentComponent },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}
