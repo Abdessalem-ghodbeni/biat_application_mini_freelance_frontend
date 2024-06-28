@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AgencesService } from 'src/app/core/services/Agence/agences.service';
-import { AgentService } from 'src/app/core/services/Agent/agent.service';
-import { ClientService } from 'src/app/core/services/Client/client.service';
+
 import { CompteService } from 'src/app/core/services/Comptes/compte.service';
-import {
-  Chart,
-  ChartConfiguration,
-  ChartData,
-  ChartOptions,
-} from 'chart.js/auto';
+import { Chart, ChartData, ChartOptions } from 'chart.js/auto';
 
 @Component({
   selector: 'app-statistique-compte-agence',

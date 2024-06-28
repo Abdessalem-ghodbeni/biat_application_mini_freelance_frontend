@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminLayoutComponent } from './layout/admin-layout.component';
-import { ListFoyerComponent } from './views/list-foyer/list-foyer.component';
-
 import { AjouterAgentComponent } from './views/ajouter-agent/ajouter-agent.component';
 import { ListeAgentsComponent } from './views/liste-agents/liste-agents.component';
 import { StatistiquesComponent } from './views/statistiques/statistiques.component';

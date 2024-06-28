@@ -17,18 +17,18 @@ export class ListeAgentsComponent {
   ) {}
 
   listAgents: any[] = [];
-  // foyer!:Foyer;
+
   selectedIdAgent!: number;
-  // selectedUniversite: Universite | null = null;
+
   selectedAgenceId: number | null = null;
   UniversiteForm!: FormGroup;
   rechercherAgent: string = '';
-  // listFoyerWithoutUniversite: any[] = [];
+
   listeAgence!: any[];
 
   ngOnInit() {
     this.getAllAgents();
-    // this.getFoyersWithoutUniversite();
+
     this.UniversiteForm = this.formBuilder.group({
       nomUniversite: ['', Validators.required],
       adresse: ['', Validators.required],
@@ -52,43 +52,6 @@ export class ListeAgentsComponent {
       error: () => {},
     });
   }
-
-  // openEditModal(universite: Universite) {
-  //   this.selectedUniversite = universite;
-  //   this.UniversiteForm.setValue({
-  //     nomUniversite: universite.nomUniversite,
-  //     adresse: universite.adresse
-  //   });
-  // }
-
-  // updateUniversite() {
-  //   if (this.UniversiteForm.valid && this.selectedUniversite) {
-  //     const updatedUniversite: Universite = {
-  //       ...this.selectedUniversite,
-  //       ...this.UniversiteForm.value
-  //     };
-
-  //     this.universiteService.updateUniversite(updatedUniversite).subscribe((res) => {
-  //       const Toast = Swal.mixin({
-  //         toast: true,
-  //         position: 'top-end',
-  //         showConfirmButton: false,
-  //         timer: 1500,
-  //         timerProgressBar: true,
-  //         didOpen: (toast) => {
-  //           toast.addEventListener('mouseenter', Swal.stopTimer)
-  //           toast.addEventListener('mouseleave', Swal.resumeTimer)
-  //         }
-  //       })
-
-  //       Toast.fire({
-  //         icon: 'success',
-  //         title: 'L\'université a été modifiée avec succès'
-  //       })
-  //       this.getAllUniversites();
-  //     });
-  //   }
-  // }
 
   affecterAgentToUniversity() {
     if (this.selectedIdAgent !== null && this.selectedAgenceId !== null) {
@@ -142,30 +105,6 @@ export class ListeAgentsComponent {
       this.getAllAgents();
     });
   }
-
-  // deleteUniversite(id:number){
-  //   this.universiteService.deleteUniversite(id).subscribe((res:any) => {
-
-  //       const Toast = Swal.mixin({
-  //         toast: true,
-  //         position: 'top-end',
-  //         showConfirmButton: false,
-  //         timer: 1500,
-  //         timerProgressBar: true,
-  //         didOpen: (toast) => {
-  //           toast.addEventListener('mouseenter', Swal.stopTimer)
-  //           toast.addEventListener('mouseleave', Swal.resumeTimer)
-  //         }
-  //       })
-
-  //       Toast.fire({
-  //         icon: 'success',
-  //         title: 'L\'université a été supprimée avec succès'
-  //       })
-
-  //     this.getAllUniversites()
-  //   })
-  // }
 
   deleteAgent(id: number) {
     Swal.fire({
