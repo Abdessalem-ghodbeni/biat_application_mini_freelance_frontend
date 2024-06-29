@@ -14,6 +14,9 @@ export class AuthenticationService {
   registerAgent(formData: FormData) {
     return this.http.post(`${environment.baseUrl}/auth/registerAgent`, formData);
   }
+  registerClient(formData: FormData) {
+    return this.http.post(`${environment.baseUrl}/auth/registerClient`, formData);
+  }
 
   login(user: LoginPayload) {
     return this.http.post(`${environment.baseUrl}/auth/login`, user);

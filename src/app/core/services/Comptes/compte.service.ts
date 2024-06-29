@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -26,5 +26,17 @@ export class CompteService {
         throw error;
       })
     );
-}
+  }
+  ajouterCompte(compte: any): Observable<any> {
+    const url = `${environment.baseUrl}/compte/add`; // Endpoint de votre API pour l'ajout de compte
+    return this.http.post<any>(url, compte).pipe(
+      catchError(error => {
+        console.error('Error adding compte:', error);
+        return throwError(error); // Gestion de l'erreur
+      })
+    );
+  }
+  getTypeCompteByClientId(clientId: number): Observable<any> {
+    return this.http.get<any[]>(`${environment.baseUrl}/compte/type/${clientId}`)
+  }
 }

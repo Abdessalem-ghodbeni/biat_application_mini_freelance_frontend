@@ -13,6 +13,7 @@ import { SignUpComponent } from './home/views/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './home/views/forgot-password/forgot-password.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ResetPasswordComponent } from './home/views/reset-password/reset-password.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  
  @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ResetPasswordComponent } from './home/views/reset-password/reset-passwo
     ReactiveFormsModule,
     HttpClientModule,
     AdminModule,
+    BrowserAnimationsModule,
  
   ],
   providers: [],

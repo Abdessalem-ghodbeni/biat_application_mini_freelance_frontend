@@ -1,1 +1,75 @@
-<p>demande-chequier works!</p>
+<div class="card-body">
+    <!-- Table START -->
+    <div class="table-responsive border-0 rounded-3">
+      <table
+        class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+        <!-- Table head -->
+        <thead>
+          <tr>
+            <th scope="col" class="border-0">Nom</th>
+            <th scope="col" class="border-0">Prénom</th>
+            <th scope="col" class="border-0">CIN</th>
+            <th scope="col" class="border-0">Télephone</th>
+            <th scope="col" class="border-0">Adresse</th>
+            <th scope="col" class="border-0">Date de demande</th>
+            <th scope="col" class="border-0">Raison</th>
+            <th scope="col" class="border-0">Status</th>
+            <th scope="col" class="border-0 rounded-end">Action</th>
+          </tr>
+        </thead>
+        <!-- Table body START -->
+        <tbody *ngFor="let request of requests">
+          <tr>
+            <td>
+              <h5 class="table-responsive-title mb-0">{{ request.client.nom }}</h5>
+            </td>
+            <td>
+              <h5 class="table-responsive-title mb-0">{{ request.client.prenom }}</h5>
+            </td>
+            <td>
+              <h5 class="table-responsive-title mb-0">{{ request.client.cin }}</h5>
+            </td>
+            <td>
+              <h5 class="table-responsive-title mb-0">{{ request.client.numeroTelephone }}</h5>
+            </td>
+            <td>
+              <h5 class="table-responsive-title mb-0">{{ request.client.adresse }}</h5>
+            </td>
+            <td>
+              <h5 class="table-responsive-title mb-0">{{ request.requestDate | date:'dd-MM-yyyy' }}</h5>
+            </td>
+            <td>
+              <h5 class="table-responsive-title mb-0">{{request.reason}}</h5>
+            </td>
+            <td>
+              <h5 class="table-responsive-title mb-0"
+                  [ngClass]="{
+                    'text-primary': request.status === 'PENDING',
+                    'text-success': request.status === 'APPROVED',
+                    'text-danger': request.status === 'REFUSED',
+                    'font-bold': true
+                  }">
+                {{ request.status }}
+              </h5>
+            </td>
+            <td>
+              <a (click)="approveRequest(request.id)"
+                data-bs-target="#updateNewcard"
+                class="btn btn-success-soft btn-round me-1 mb-1 mb-md-0">
+                <i class="bi bi-bookmark-check"></i>              
+              </a>
+              <a (click)="refuseRequest(request.id)"
+                class="btn btn-danger-soft btn-round me-1 mb-1 mb-md-0"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Supprimer">
+                <i class="bi bi-bookmark-x"></i>              
+              </a>
+            </td>            
+          </tr>
+        </tbody>
+        <!-- Table body END -->
+      </table>
+    </div>
+    <!-- Table END -->
+  </div>

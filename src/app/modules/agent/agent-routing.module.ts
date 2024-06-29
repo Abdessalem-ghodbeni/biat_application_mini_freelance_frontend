@@ -2,16 +2,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutAgentComponent } from './layout-agent/layout-agent.component';
 import { DemandeChequierComponent } from './views/demande-chequier/demande-chequier.component';
+import { AllClientComponent } from './views/all-client/all-client.component';
+import { AddClientComponent } from './views/add-client/add-client.component';
+import { AddAccountComponent } from './views/add-account/add-account.component';
+import { AllAccountComponent } from './views/all-account/all-account.component';
+import { AgenceComponent } from './views/agence/agence.component';
 
 const routes: Routes = [{
   path: '', component: LayoutAgentComponent, children: [
+    { path: 'Agence' , component: AgenceComponent},
     { path: 'demande_chequier', component: DemandeChequierComponent },
-    // { path: 'list-university', component: ListUniversiteComponent },
-    // { path: 'list-bloc-foyer', component: ListBlocFoyerComponent },
-    // { path: 'list-chambre-bloc', component: ListChambreBlocComponent },
-    // { path: 'list-reservation', component: ListReservationComponent },
-    // { path: 'list-agents', component: ListeAgentsComponent },
-    // { path: 'ajouter-agent', component: AjouterAgentComponent }
+    { path: 'All_Client' , component: AllClientComponent},
+    { path: 'Add_Client' , component: AddClientComponent},
+    { path: 'All_account' , component: AllAccountComponent},
+    { path: 'Add_account' , component: AddAccountComponent},
   ]
 }];
 

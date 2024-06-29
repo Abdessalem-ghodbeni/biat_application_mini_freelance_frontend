@@ -1,9 +1,7 @@
 <!-- Header START -->
 <header class="navbar-light navbar-sticky">
-  <!-- Logo Nav START -->
-  <nav class="navbar navbar-expand-xl">
+  <!-- <nav class="navbar navbar-expand-xl">
     <div class="container">
-      <!-- Logo START -->
       <a class="navbar-brand" href="index.html">
         <img
           class="light-mode-item navbar-brand-item"
@@ -16,9 +14,7 @@
           alt="logo"
         />
       </a>
-      <!-- Logo END -->
 
-      <!-- Responsive navbar toggler -->
       <button
         class="navbar-toggler ms-auto"
         type="button"
@@ -35,15 +31,10 @@
         </span>
       </button>
 
-      <!-- Main navbar START -->
       <div class="navbar-collapse w-100 collapse" id="navbarCollapse">
-        <!-- Nav Main menu START -->
         <ul class="navbar-nav navbar-nav-scroll mx-auto"></ul>
-        <!-- Nav Main menu END -->
       </div>
-      <!-- Main navbar END -->
 
-      <!-- Profile START -->
       <div class="dropdown ms-1 ms-lg-0">
         <a
           class="avatar avatar-sm p-0"
@@ -65,10 +56,8 @@
           class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3"
           aria-labelledby="profileDropdown"
         >
-          <!-- Profile info -->
           <li class="px-3 mb-3">
             <div class="d-flex align-items-center">
-              <!-- Avatar -->
               <div class="avatar me-3">
                 <img
                   class="avatar-img rounded-circle shadow"
@@ -85,7 +74,6 @@
             </div>
           </li>
           <li><hr class="dropdown-divider" /></li>
-          <!-- Dark mode options START -->
           <li>
             <div
               class="bg-light dark-mode-switch theme-icon-active d-flex align-items-center p-1 rounded mt-2"
@@ -155,27 +143,24 @@
               </button>
             </div>
           </li>
-          <!-- Dark mode options END-->
         </ul>
       </div>
-      <!-- Profile START -->
     </div>
-  </nav>
+  </nav> -->
   <!-- Logo Nav END -->
 </header>
 <!-- Header END -->
-
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
   <!-- =======================
   Page Banner START -->
   <section class="pt-0">
     <!-- Main banner background image -->
-    <div class="container-fluid px-0">
+    <div class="container px-0">
       <div
-        class="bg-blue h-100px h-md-200px rounded-0"
+        class="bg-primary    h-100px h-md-200px rounded-0"
         style="
-          background: url(assets/images/pattern/04.png) no-repeat center center;
+          background: url(assets/images/pattern/03.png) no-repeat center center;
           background-size: cover;
         "
       ></div>
@@ -207,6 +192,9 @@
                     {{ userconnect.nom }} {{ userconnect.prenom }}
                     <i class="bi bi-patch-check-fill text-info small"></i>
                   </h1>
+                  <h6 class="role-display my-1">
+                    {{ userconnect.role }} 
+                  </h6>
                 </div>
               </div>
             </div>
@@ -269,18 +257,12 @@
               <div class="bg-dark border rounded-3 pb-0 p-3 w-100">
                 <!-- Dashboard menu -->
                 <div class="list-group list-group-dark list-group-borderless">
-                  <a class="list-group-item" routerLink="etudiant-profile"
-                    ><i class="fas fa-address-card fa-fw me-2"></i>Editer le
-                    profil</a
+                  <a class="list-group-item" routerLink="Agence"
+                    ><i class="fas fa-address-card fa-fw me-2"></i>Agence</a
                   >
-                  <a class="list-group-item" routerLink="infoFoyerUniversite"
-                    ><i class="fas fa-city fa-fw me-2"></i>Infos université et
-                    foyer</a
-                  >
-                  <a class="list-group-item" routerLink="list-reservation"
-                    ><i class="fas fa-window-restore fa-fw me-2"></i
-                    >Réservations</a
-                  >
+                  <a class="list-group-item" routerLink="All_Client"><i class="bi bi-list"></i>Client</a>
+                  <a class="list-group-item" routerLink="All_account"><i class="bi bi-person-vcard"></i>Comptes</a>
+                  <a class="list-group-item" routerLink="demande_chequier"><i class="bi bi-list"></i>Demandes chéquier</a>
                   <a
                     class="list-group-item text-danger bg-danger-soft-hover"
                     (click)="logout()"
@@ -312,8 +294,9 @@
 
 <!-- =======================
   Footer START -->
-<footer class="bg-dark p-3">
   <div class="container">
+ <footer class="bg-dark p-3">
+  
     <div class="row align-items-center">
       <!-- Widget -->
       <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
@@ -326,7 +309,7 @@
       <!-- Widget -->
       <div class="col-md-4 mb-3 mb-md-0">
         <div class="text-center text-white text-primary-hover">
-          Copyrights ©2023 ESPRIT.
+          Copyrights ©2024.
         </div>
       </div>
       <!-- Widget -->
@@ -348,7 +331,8 @@
         </ul>
       </div>
     </div>
-  </div>
 </footer>
+</div>
+
 <!-- =======================
   Footer END -->

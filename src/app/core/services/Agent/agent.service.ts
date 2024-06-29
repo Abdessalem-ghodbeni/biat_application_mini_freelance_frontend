@@ -65,6 +65,9 @@ geAgentByIdAgence(idAgence: number){
     })
   );
 }
+getAgentById(id: number): Observable<any> {
+  return this.http.get<any>(`${environment.baseUrl}/agent/${id}`);
+}
 
 
 
