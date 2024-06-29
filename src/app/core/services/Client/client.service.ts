@@ -10,6 +10,7 @@ export class ClientService {
 
   constructor(private http: HttpClient) { }
 
+
 getClient() {
   return this.http.get<any[]>(`${environment.baseUrl}/client/all`) .pipe(
     catchError((error) => {
@@ -36,5 +37,6 @@ getAgentByClientId(clientId: number): Observable<any> {
 
 getAgenceByClientId(clientId: number): Observable<any> {
   return this.http.get<any>(`${environment.baseUrl}/${clientId}/agence`);
+
 }
 }

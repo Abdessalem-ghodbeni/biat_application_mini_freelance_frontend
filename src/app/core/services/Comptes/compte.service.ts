@@ -26,6 +26,7 @@ export class CompteService {
         throw error;
       })
     );
+
   }
   ajouterCompte(compte: any): Observable<any> {
     const url = `${environment.baseUrl}/compte/add`; // Endpoint de votre API pour l'ajout de compte
@@ -39,4 +40,18 @@ export class CompteService {
   getTypeCompteByClientId(clientId: number): Observable<any> {
     return this.http.get<any[]>(`${environment.baseUrl}/compte/type/${clientId}`)
   }
+  getcompteByType() {
+    return this.http.get<any>(`${environment.baseUrl}/compte/NbCompteByType`) .pipe(
+      catchError((error) => {
+        console.log('errrr', error);
+        throw error;
+      })
+    );
+  }
 }
+
+
+
+
+
+
