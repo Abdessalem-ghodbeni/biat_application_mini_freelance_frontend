@@ -1,49 +1,50 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Universite } from 'src/app/core/models/universite/universite';
+
 import { AuthenticationService } from 'src/app/core/services/authentication/authentication.service';
-import { UniversiteService } from 'src/app/core/services/universite/universite.service';
+
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ajouter-agent',
   templateUrl: './ajouter-agent.component.html',
-  styleUrls: ['./ajouter-agent.component.css']
+  styleUrls: ['./ajouter-agent.component.css'],
 })
 export class AjouterAgentComponent {
-
-  listUniversite: Universite[] = [];
-
   registerForm = new FormGroup({
     nom: new FormControl('', [Validators.required, Validators.minLength(3)]),
     prenom: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    cin: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
+    cin: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(8),
+    ]),
     image: new FormControl('', [Validators.required]),
-    numeroTelephone: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    numeroTelephone: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
     dateNaissance: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)])
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
   });
 
   selectedFile: File | null = null;
 
-  constructor(private router: Router, private authenticationService: AuthenticationService, private universiteService: UniversiteService) { }
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {}
 
-  ngOnInit(): void {
-    this.getAllUniversites();
-  }
+  ngOnInit(): void {}
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0] as File;
   }
-
-  getAllUniversites() {
-    this.universiteService.getAllUniversites().subscribe((data: Universite[]) => {
-      this.listUniversite = data;
-    });
-  }
-  
 
   register() {
     const formData = new FormData();
@@ -57,8 +58,14 @@ export class AjouterAgentComponent {
     addValueToFormData('nom', this.registerForm.get('nom')?.value);
     addValueToFormData('prenom', this.registerForm.get('prenom')?.value);
     addValueToFormData('cin', this.registerForm.get('cin')?.value);
-    addValueToFormData('numeroTelephone', this.registerForm.get('numeroTelephone')?.value);
-    addValueToFormData('dateNaissance', this.registerForm.get('dateNaissance')?.value);
+    addValueToFormData(
+      'numeroTelephone',
+      this.registerForm.get('numeroTelephone')?.value
+    );
+    addValueToFormData(
+      'dateNaissance',
+      this.registerForm.get('dateNaissance')?.value
+    );
     addValueToFormData('email', this.registerForm.get('email')?.value);
     addValueToFormData('password', this.registerForm.get('password')?.value);
 
@@ -73,7 +80,7 @@ export class AjouterAgentComponent {
           title: 'Inscription réussie',
           text: 'Vous pouvez voir la liste des agents',
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
         });
         this.router.navigate(['admin/list-agents']);
       },
@@ -81,15 +88,14 @@ export class AjouterAgentComponent {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Une erreur est survenue lors de l\'inscription',
-          footer: 'Veuillez réessayer'
+          text: "Une erreur est survenue lors de l'inscription",
+          footer: 'Veuillez réessayer',
         });
       }
     );
   }
-  
 
-  Clear(){
+  Clear() {
     this.registerForm.reset();
   }
 }
