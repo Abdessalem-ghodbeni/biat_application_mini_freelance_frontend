@@ -60,7 +60,7 @@ export class AgenceService {
   }
 
   getAgenceById(id: any) {
-    return this.http.get<any>(`${environment.baseUrl}/agence/${id}`).pipe(
+    return this.http.get<any>(`${environment.baseUrl}/agence/get/${id}`).pipe(
       catchError((error) => {
         console.log('errrr', error);
         throw error;

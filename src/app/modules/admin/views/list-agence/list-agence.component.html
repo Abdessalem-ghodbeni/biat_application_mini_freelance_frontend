@@ -79,28 +79,40 @@
               <tr>
                 <!-- Table data -->
                 <td>
-                  <h6 class="table-responsive-title mt-2 mt-lg-0 mb-0">
-                    <a href="#">{{ agence.nom }}</a>
-                  </h6>
+                  <h4 class="table-responsive-title mt-2 mt-lg-0 mb-0">
+                    {{ agence.nom }}
+                  </h4>
                 </td>
 
                 <!-- Table data -->
                 <td class="text-center text-sm-start text-primary-hover">
-                  {{ agence.adresse }}
+                  <h4>
+                    {{ agence.adresse }}
+                  </h4>
                 </td>
 
                 <!-- Table data -->
-                <td>{{ agence.codePostal }}</td>
-
-                <!-- Table data -->
-                <td>{{ agence.email }}</td>
                 <td>
-                  <h6 class="table-responsive-title mt-2 mt-lg-0 mb-0">
-                    {{ agence.telephone }}
-                  </h6>
+                  <h4>
+                    {{ agence.codePostal }}
+                  </h4>
                 </td>
-                <td>{{ agence.ville }}</td>
-                <td>{{ agence.fax }}</td>
+
+                <!-- Table data -->
+                <td>
+                  <h4>{{ agence.email }}</h4>
+                </td>
+                <td>
+                  <h4 class="table-responsive-title mt-2 mt-lg-0 mb-0">
+                    {{ agence.telephone }}
+                  </h4>
+                </td>
+                <td>
+                  <h4>{{ agence.ville }}</h4>
+                </td>
+                <td>
+                  <h4>{{ agence.fax }}</h4>
+                </td>
                 <td>
                   <a
                     data-bs-target="#updateNewcard"

@@ -71,30 +71,30 @@
               <tr>
                 <!-- Table data -->
                 <td>
-                  <h6 class="table-responsive-title mb-0">{{ agent.nom }}</h6>
+                  <h4 class="table-responsive-title mb-0">{{ agent.nom }}</h4>
                 </td>
 
                 <!-- Table data -->
                 <td>
-                  <h6 class="table-responsive-title mb-0">
+                  <h4 class="table-responsive-title mb-0">
                     {{ agent.prenom }}
-                  </h6>
+                  </h4>
                 </td>
                 <td>
-                  <h6 class="table-responsive-title mb-0">
+                  <h4 class="table-responsive-title mb-0">
                     {{ agent.numeroTelephone }}
-                  </h6>
+                  </h4>
                 </td>
                 <td>
-                  <h6 class="table-responsive-title mb-0">{{ agent.email }}</h6>
+                  <h4 class="table-responsive-title mb-0">{{ agent.email }}</h4>
                 </td>
                 <td>
-                  <h6 class="table-responsive-title mb-0">{{ agent.cin }}</h6>
+                  <h4 class="table-responsive-title mb-0">{{ agent.cin }}</h4>
                 </td>
                 <td>
-                  <h6 class="table-responsive-title mb-0">
+                  <h4 class="table-responsive-title mb-0">
                     {{ agent.dateNaissance }}
-                  </h6>
+                  </h4>
                 </td>
 
                 <!-- Table data -->
@@ -107,21 +107,18 @@
                   </span>
                   <!-- Template pour 'Non associé' -->
                   <ng-template #notAssociated>
-                    <h6 class="badge bg-danger bg-opacity-10 text-danger">
+                    <h4 class="badge bg-danger bg-opacity-10 text-danger">
                       Non associé
-                    </h6>
+                    </h4>
                   </ng-template>
                 </td>
 
                 <td>
-                  <!-- <h6 class="table-responsive-title mb-0">
-                    {{ agent?.agence?.fax }}
-                  </h6> -->
-                  <span *ngIf="agent.agence !== null; else notAssociated">
-                    <h6 class="table-responsive-title mb-0">
+                  <h6 class="table-responsive-title mb-0">
+                    <h4 *ngIf="agent.agence !== null; else notAssociated">
                       {{ agent?.agence?.fax }}
-                    </h6>
-                  </span>
+                    </h4>
+                  </h6>
                 </td>
 
                 <!-- Table data -->
