@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { NgIfContext } from '@angular/common';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ClientService } from 'src/app/core/services/Client/client.service';
 import Swal from 'sweetalert2';
 
@@ -9,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class AllClientComponent implements OnInit {
   listClients: any[] = [];
+  public noData!: TemplateRef<NgIfContext<boolean>>;
 
   constructor(private clientS : ClientService){}
 

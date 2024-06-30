@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AgentService } from 'src/app/core/services/Agent/agent.service';
 import { DemandeChequeService } from 'src/app/core/services/Cheque/demande-cheque.service';
 import { ClientService } from 'src/app/core/services/Client/client.service';
@@ -25,7 +26,7 @@ export class DemandeChequeComponent implements OnInit {
   });
   isLinear = false;
 
-  constructor(private _formBuilder: FormBuilder , private agentS : AgentService , private chequeS : DemandeChequeService , private clientS : ClientService , private compteS : CompteService) {
+  constructor(private _formBuilder: FormBuilder , private agentS : AgentService , private chequeS : DemandeChequeService , private clientS : ClientService , private compteS : CompteService , private route : Router) {
     this.currentDate = new Date().toISOString().split('T')[0]; 
     const userConnect = localStorage.getItem('userconnect');
     if (userConnect) {
@@ -48,7 +49,6 @@ export class DemandeChequeComponent implements OnInit {
       const user = JSON.parse(userConnect);
       this.clientId = user.id;
       this.getAgentDetails(this.clientId);
-      console.log(this.clientId)
     } else {
       console.error('No userconnect data found in localStorage');
     }
@@ -57,7 +57,6 @@ export class DemandeChequeComponent implements OnInit {
     this.clientS.getAgentByClientId(id).subscribe(
       (data) => {
         this.agentDetails = data;
-        console.log('test' ,data)
         this.demandeForm.patchValue({
           agentId: this.agentDetails.id,
           agenceId: this.agentDetails.agence.id
@@ -72,7 +71,6 @@ export class DemandeChequeComponent implements OnInit {
   ajouterDemande() {
     if (this.demandeForm.valid) {
       const clientId = this.demandeForm.value.clientId;
-  
       this.compteS.getTypeCompteByClientId(clientId).subscribe(
         (typeCompte) => {
           if (typeCompte === 'CHEQUIER') {
@@ -83,26 +81,16 @@ export class DemandeChequeComponent implements OnInit {
               agence: { id: this.demandeForm.value.agenceId },
               requestDate: this.demandeForm.value.requestDate,
               status: this.demandeForm.value.status,
-            };
-  
-            console.log(compteData);
-  
+            };  
             this.chequeS.createChequeBookRequest(compteData).subscribe(
               (response) => {
                 Swal.fire({
                   icon: 'success',
                   title: 'Succès',
                   text: 'Demande ajoutée avec succès!'
+                }).then(() => {
+                  this.route.navigate(['/client/Liste_des_Demande']);
                 });
-                console.log('Demande ajoutée avec succès:', response);
-              },
-              (error) => {
-                Swal.fire({
-                  icon: 'error',
-                  title: 'Erreur',
-                  text: 'Erreur lors de l\'ajout de la demande.'
-                });
-                console.error('Erreur lors de l\'ajout de la demande:', error);
               }
             );
           } else {
@@ -111,7 +99,6 @@ export class DemandeChequeComponent implements OnInit {
               title: 'Erreur',
               text: 'Le type de compte doit être CHEQUIER pour effectuer une demande.'
             });
-            console.error('Le type de compte doit être CHEQUIER pour effectuer une demande.');
           }
         },
         (error) => {
@@ -120,7 +107,6 @@ export class DemandeChequeComponent implements OnInit {
             title: 'Erreur',
             text: 'Erreur lors de la vérification du type de compte.'
           });
-          console.error('Erreur lors de la vérification du type de compte:', error);
         }
       );
     } else {
@@ -129,7 +115,6 @@ export class DemandeChequeComponent implements OnInit {
         title: 'Erreur',
         text: 'Formulaire invalide. Veuillez vérifier les champs.'
       });
-      console.error('Formulaire invalide. Veuillez vérifier les champs.');
     }
   }
   

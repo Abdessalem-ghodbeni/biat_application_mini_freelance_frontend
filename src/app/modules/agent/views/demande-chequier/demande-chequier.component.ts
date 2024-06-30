@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { NgIfContext } from '@angular/common';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { DemandeChequeService } from 'src/app/core/services/Cheque/demande-cheque.service';
 import Swal from 'sweetalert2';
 
@@ -10,6 +11,8 @@ import Swal from 'sweetalert2';
 export class DemandeChequierComponent implements OnInit {
   requests: any[] = [];
   agentId : any ;
+  public noData!: TemplateRef<NgIfContext<boolean>>;
+
   constructor(
     private chequierS : DemandeChequeService
   ){
@@ -34,6 +37,7 @@ loadRequests(): void {
     }
   );
 }
+
 approveRequest(requestId: number): void {
   Swal.fire({
     title: 'Êtes-vous sûr(e) de vouloir approuver cette demande ?',
@@ -47,10 +51,11 @@ approveRequest(requestId: number): void {
         (response) => {
           console.log('Demande approuvée avec succès:', response);
           Swal.fire('Succès', 'La demande a été approuvée avec succès.', 'success');
+          this.ngOnInit();
         },
         (error) => {
           console.error('Erreur lors de l\'approbation de la demande:', error);
-          Swal.fire('Erreur', 'la demande a été approuvé par l"administrateur.', 'error');
+          Swal.fire('Erreur', 'Erreur lors de l\'approbation de la demande.', 'error');
         }
       );
     }
@@ -70,6 +75,7 @@ refuseRequest(requestId: number): void {
         (response) => {
           console.log('Demande refusée avec succès:', response);
           Swal.fire('Succès', 'La demande a été refusée avec succès.', 'success');
+          this.ngOnInit();
         },
         (error) => {
           console.error('Erreur lors du refus de la demande:', error);

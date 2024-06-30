@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { NgIfContext } from '@angular/common';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { CompteService } from 'src/app/core/services/Comptes/compte.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { CompteService } from 'src/app/core/services/Comptes/compte.service';
 })
 export class AllAccountComponent implements OnInit{
   ListofAccount : any[] = []; 
+  public noData!: TemplateRef<NgIfContext<boolean>>;
+
   constructor(
     private compteS : CompteService
   ){
@@ -20,6 +23,7 @@ export class AllAccountComponent implements OnInit{
     this.compteS.getAllAcount().subscribe(
       (data) => {
         this.ListofAccount = data;
+        console.log(data)
       },
       (error) => {
         console.error('Error fetching clients:', error);

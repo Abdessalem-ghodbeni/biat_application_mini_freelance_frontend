@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { NgIfContext } from '@angular/common';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { DemandeChequeService } from 'src/app/core/services/Cheque/demande-cheque.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { DemandeChequeService } from 'src/app/core/services/Cheque/demande-chequ
 export class ListesDesDemandesComponent implements OnInit{
   requests: any[] = [];
   clientId : any ;
+  public noData!: TemplateRef<NgIfContext<boolean>>;
+
   constructor(private chequeS : DemandeChequeService){
 
   }

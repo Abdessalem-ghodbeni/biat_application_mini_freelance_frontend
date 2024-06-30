@@ -35,7 +35,10 @@
         <!-- Table head -->
         <thead>
           <tr>
-            <th scope="col" class="border-0 rounded-start">Numéro de Compte</th>
+            <th scope="col" class="border-0 ">Nom</th>
+            <th scope="col" class="border-0 ">Prénom</th>
+            <th scope="col" class="border-0">TypeCompte</th>
+            <th scope="col" class="border-0 ">Numéro de Compte</th>
             <th scope="col" class="border-0">TypeCompte</th>
             <th scope="col" class="border-0">Solde</th>
             <th scope="col" class="border-0">Date de création</th>
@@ -43,8 +46,17 @@
           </tr>
         </thead>
         <!-- Table body START -->
-        <tbody *ngFor="let compte of ListofAccount" >
-          <tr>
+        <tbody *ngIf="ListofAccount.length > 0; else noData" >
+          <tr  *ngFor="let compte of ListofAccount">
+            <td>
+              <h4 class="table-responsive-title mb-0">{{compte.client.nom}}</h4>
+            </td>
+            <td>
+              <h4 class="table-responsive-title mb-0">{{compte.client.prenom}}</h4>
+            </td>
+            <td>
+              <h4 class="table-responsive-title mb-0">{{compte.typeCompte}}</h4>
+            </td>
             <td>
               <h4 class="table-responsive-title mb-0">{{compte.numeroCompte}}</h4>
             </td>
@@ -76,6 +88,15 @@
             </td>
           </tr>
         </tbody>
+        <tfoot *ngIf="ListofAccount.length === 0">
+          <tr>
+            <td colspan="9">
+              <div class="alert alert-secondary text-center my-4" role="alert">
+                Aucun compte disponible pour le moment...
+              </div>
+            </td>
+          </tr>
+        </tfoot>
         <!-- Table body END -->
       </table>
     </div>

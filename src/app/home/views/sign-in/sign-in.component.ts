@@ -57,7 +57,7 @@ export class SignInComponent {
         // } 
         else if(res.userDetails.role === Role.AGENT){this.router.navigateByUrl('/agent/demande_chequier');}
         else {
-          this.router.navigateByUrl('/client/client-profile');
+          this.router.navigateByUrl('/client/Liste_des_Demande');
         }
       }
     }, err => {

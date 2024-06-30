@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AgentService } from 'src/app/core/services/Agent/agent.service';
 import { ClientService } from 'src/app/core/services/Client/client.service';
 import { CompteService } from 'src/app/core/services/Comptes/compte.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-account',
@@ -23,7 +25,7 @@ export class AddAccountComponent implements OnInit {
     private clientS : ClientService,
     private agentS : AgentService,
     private compteS : CompteService,
-
+    private route : Router
   ) 
     {
       this.currentDate = new Date().toISOString().split('T')[0]; 
@@ -98,7 +100,7 @@ export class AddAccountComponent implements OnInit {
       }
     );
   }
-  ajouterCompte() {
+  ajouterCompte(): void {
     if (this.compteForm.valid) {
       const compteData = {
         numeroCompte: this.compteForm.value.numeroCompte,
@@ -113,15 +115,30 @@ export class AddAccountComponent implements OnInit {
       this.compteS.ajouterCompte(compteData).subscribe(
         (response) => {
           console.log('Compte ajouté avec succès:', response);
-          
+          Swal.fire({
+            icon: 'success',
+            title: 'Succès!',
+            text: 'Compte ajouté avec succès.'
+          }).then(() => {
+            this.route.navigate(['agent/All_account']); 
+          });
         },
         (error) => {
           console.error('Erreur lors de l\'ajout du compte:', error);
-          
+          Swal.fire({
+            icon: 'error',
+            title: 'Erreur!',
+            text: 'Une erreur est survenue lors de l\'ajout du compte.'
+          });
         }
       );
     } else {
       console.error('Formulaire invalide. Veuillez vérifier les champs.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Attention!',
+        text: 'Formulaire invalide. Veuillez vérifier les champs.'
+      });
     }
   }
  

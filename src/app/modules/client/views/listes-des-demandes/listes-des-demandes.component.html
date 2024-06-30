@@ -45,8 +45,8 @@
           </tr>
         </thead>
         <!-- Table body START -->
-        <tbody *ngFor="let request of requests">
-          <tr>
+        <tbody *ngIf="requests.length > 0; else noData">
+          <tr *ngFor="let request of requests">
             <td>
               <h4 class="table-responsive-title mb-0">{{ request.requestDate | date:'dd-MM-yyyy' }}</h4>
             </td>
@@ -91,7 +91,16 @@
             </td>
           </tr>
         </tbody>
-        <!-- Table body END -->
+        <!-- Placeholder for no data -->
+        <tfoot *ngIf="requests.length === 0">
+          <tr>
+            <td colspan="9">
+              <div class="alert alert-secondary text-center my-4" role="alert">
+                Aucun client disponible pour le moment...
+              </div>
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
     <!-- Table END -->
