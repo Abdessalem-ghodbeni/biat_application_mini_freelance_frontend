@@ -21,28 +21,28 @@
         <tbody *ngIf="requests.length > 0; else noData" >
           <tr *ngFor="let request of requests">
             <td>
-              <h5 class="table-responsive-title mb-0">{{ request.client.nom }}</h5>
+              <h4 class="table-responsive-title mb-0">{{ request.client.nom }}</h4>
             </td>
             <td>
-              <h5 class="table-responsive-title mb-0">{{ request.client.prenom }}</h5>
+              <h4 class="table-responsive-title mb-0">{{ request.client.prenom }}</h4>
             </td>
             <td>
-              <h5 class="table-responsive-title mb-0">{{ request.client.cin }}</h5>
+              <h4 class="table-responsive-title mb-0">{{ request.client.cin }}</h4>
             </td>
             <td>
-              <h5 class="table-responsive-title mb-0">{{ request.client.numeroTelephone }}</h5>
+              <h4 class="table-responsive-title mb-0">{{ request.client.numeroTelephone }}</h4>
             </td>
             <td>
-              <h5 class="table-responsive-title mb-0">{{ request.client.adresse }}</h5>
+              <h4 class="table-responsive-title mb-0">{{ request.client.adresse }}</h4>
             </td>
             <td>
-              <h5 class="table-responsive-title mb-0">{{ request.requestDate | date:'dd-MM-yyyy' }}</h5>
+              <h4 class="table-responsive-title mb-0">{{ request.requestDate | date:'dd-MM-yyyy' }}</h4>
             </td>
             <td>
-              <h5 class="table-responsive-title mb-0">{{request.reason}}</h5>
+              <h4 class="table-responsive-title mb-0">{{request.reason}}</h4>
             </td>
             <td>
-              <h5 class="table-responsive-title mb-0"
+              <h4 class="table-responsive-title mb-0"
                   [ngClass]="{
                     'text-primary': request.status === 'PENDING',
                     'text-success': request.status === 'APPROVED',
@@ -50,7 +50,7 @@
                     'font-bold': true
                   }">
                 {{ request.status }}
-              </h5>
+              </h4>
             </td>
             <td>
               <a (click)="approveRequest(request.id)"
@@ -81,4 +81,3 @@
       </table>
     </div>
     <!-- Table END -->
-  </div>
