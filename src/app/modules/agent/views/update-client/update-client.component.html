@@ -1,16 +1,16 @@
 <mat-stepper [linear]="isLinear" #stepper>
     <mat-step >
       <form >
-        <ng-template matStepLabel>Ajouter Client</ng-template>
+        <ng-template matStepLabel>Mettre à jour Client Client</ng-template>
         <div class="text-center">
             <img
               src="./../../../../../assets/images/Sign up-pana.png"
               class="h-100px mb-2"
               alt=""
             />
-            <h2>Créez nouveau Client !</h2>
+            <h2>Mettre à jour Client !</h2>
             <p class="lead mb-4">
-              Ravi de vous voir! Veuillez vous ajouter un nouveau Client.
+              Ravi de vous voir ! 
             </p>
           </div>
         <div>
@@ -21,7 +21,7 @@
       </form>
     </mat-step>   
     <mat-step [stepControl]="secondFormGroup" label="Détails principale">
-            <form [formGroup]="registerForm" (ngSubmit)="register()">
+            <form [formGroup]="updateForm"  (ngSubmit)="updateClient()" >
                 <div class="row">
                     <div class="mb-4 col-12 col-md-6">
                         <label for="exampleInputNom" class="form-label">Nom *</label>

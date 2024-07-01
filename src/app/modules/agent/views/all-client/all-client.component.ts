@@ -1,5 +1,6 @@
 import { NgIfContext } from '@angular/common';
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { ClientService } from 'src/app/core/services/Client/client.service';
 import Swal from 'sweetalert2';
 
@@ -12,7 +13,7 @@ export class AllClientComponent implements OnInit {
   listClients: any[] = [];
   public noData!: TemplateRef<NgIfContext<boolean>>;
 
-  constructor(private clientS: ClientService) {}
+  constructor(private clientS: ClientService , private route : Router) {}
 
   ngOnInit(): void {
     this.getAllClients();
@@ -49,6 +50,7 @@ export class AllClientComponent implements OnInit {
               timerProgressBar: true,
             });
             this.ngOnInit();
+            this.getAllClients();
           },
           (error) => {
             Swal.fire({
@@ -62,5 +64,8 @@ export class AllClientComponent implements OnInit {
         );
       }
     });
+  }
+  updateClient(id: number) {
+    this.route.navigate(['/agent/update_client/', id]);
   }
 }

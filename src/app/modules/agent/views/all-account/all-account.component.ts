@@ -1,6 +1,8 @@
 import { NgIfContext } from '@angular/common';
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { CompteService } from 'src/app/core/services/Comptes/compte.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-all-account',
@@ -9,10 +11,12 @@ import { CompteService } from 'src/app/core/services/Comptes/compte.service';
 })
 export class AllAccountComponent implements OnInit{
   ListofAccount : any[] = []; 
+  currentPopup: string | null = null;
   public noData!: TemplateRef<NgIfContext<boolean>>;
 
   constructor(
-    private compteS : CompteService
+    private compteS : CompteService,
+    private route : Router
   ){
 
   }
@@ -30,4 +34,9 @@ export class AllAccountComponent implements OnInit{
       }
     );
   }
+  voirDetails(id: number) {
+    this.route.navigate(['/agent/voir_Details/', id]);
+  }
+
+  
 }

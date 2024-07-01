@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AgentRoutingModule } from './agent-routing.module';
 import { LayoutAgentComponent } from './layout-agent/layout-agent.component';
 import { DemandeChequierComponent } from './views/demande-chequier/demande-chequier.component';
@@ -13,7 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
 import { AddAccountComponent } from './views/add-account/add-account.component';
 import { AllAccountComponent } from './views/all-account/all-account.component';
-import { AgenceComponent } from './views/agence/agence.component';
+import { UpdateClientComponent } from './views/update-client/update-client.component';
+import { VoirDetailComponent } from './views/voir-detail/voir-detail.component';
 @NgModule({
   declarations: [
     LayoutAgentComponent,
@@ -22,7 +22,8 @@ import { AgenceComponent } from './views/agence/agence.component';
     AddClientComponent,
     AddAccountComponent,
     AllAccountComponent,
-    AgenceComponent
+    UpdateClientComponent,
+    VoirDetailComponent
   ],
   imports: [
     CommonModule,

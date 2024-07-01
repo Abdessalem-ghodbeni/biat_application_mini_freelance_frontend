@@ -8,7 +8,6 @@
       >
     </div>
   </div>
-
   <div class="card bg-transparent border">
     <!-- Card header START -->
     <div class="card-header bg-light border-bottom">
@@ -60,7 +59,6 @@
                 <th scope="col" class="border-0 rounded-end">Action</th>
               </tr>
             </thead>
-
             <!-- Table body START -->
             <tbody
               *ngFor="
@@ -123,7 +121,6 @@
 
                 <!-- Table data -->
                 <td>
-                  <!-- <a (click)="openEditModal(universite)" data-bs-toggle="modal" -->
                   <a
                     data-bs-target="#updateNewcard"
                     class="btn btn-success-soft btn-round me-1 mb-1 mb-md-0"
@@ -178,75 +175,6 @@
     </div>
     <!-- All review table END -->
   </div>
-
-  <!--  
-    <div class="modal fade" id="addNewcard" tabindex="-1" aria-labelledby="addNewcardLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-dark">
-                    <h5 class="modal-title text-white" id="addNewcardLabel">Ajouter université</h5>
-                    <button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="modal"
-                        aria-label="Close"><i class="bi bi-x-lg"></i></button>
-                </div>
-                <div class="modal-body">
-                    <form class="row text-start g-3" [formGroup]="UniversiteForm">
-
-                        <div class="col-12">
-                            <label class="form-label">Nom de l'université</label>
-                            <input type="text" class="form-control" formControlName="nomUniversite"
-                                placeholder="Entrez le nom de l'université">
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label">Adresse de l'université</label>
-                            <input type="text" class="form-control" formControlName="adresse"
-                                placeholder="Entrez l'adresse de l'université">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" [disabled]="!UniversiteForm.valid" (click)="ajouerUniversite()"
-                        data-bs-dismiss="modal" aria-label="Close" class="btn btn-success my-0">Ajouter</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
- 
-    <div class="modal fade" id="updateNewcard" tabindex="-1" aria-labelledby="addNewcardLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-dark">
-                    <h5 class="modal-title text-white" id="addNewcardLabel">Modifier université</h5>
-                    <button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="modal"
-                        aria-label="Close"><i class="bi bi-x-lg"></i></button>
-                </div>
-                <div class="modal-body">
-                    <form class="row text-start g-3" [formGroup]="UniversiteForm">
-
-                        <div class="col-12">
-                            <label class="form-label">Nom de l'université</label>
-                            <input type="text" class="form-control" formControlName="nomUniversite">
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label">Adresse de l'université</label>
-                            <input type="text" class="form-control" formControlName="adresse">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" (click)="updateUniversite()" data-bs-dismiss="modal" aria-label="Close"
-                        class="btn btn-success my-0">Modifier</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
- 
- 
-    </div> -->
-
   <div
     class="modal fade"
     id="getNewcard"

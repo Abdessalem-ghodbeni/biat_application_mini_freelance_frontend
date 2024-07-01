@@ -37,7 +37,6 @@
           <tr>
             <th scope="col" class="border-0 ">Nom</th>
             <th scope="col" class="border-0 ">Prénom</th>
-            <th scope="col" class="border-0">TypeCompte</th>
             <th scope="col" class="border-0 ">Numéro de Compte</th>
             <th scope="col" class="border-0">TypeCompte</th>
             <th scope="col" class="border-0">Solde</th>
@@ -55,9 +54,6 @@
               <h4 class="table-responsive-title mb-0">{{compte.client.prenom}}</h4>
             </td>
             <td>
-              <h4 class="table-responsive-title mb-0">{{compte.typeCompte}}</h4>
-            </td>
-            <td>
               <h4 class="table-responsive-title mb-0">{{compte.numeroCompte}}</h4>
             </td>
             <td>
@@ -71,20 +67,15 @@
             </td>
             <td>
               <a
-              href="agent/Add_account"
-                data-bs-target="#updateNewcard"
-                class="btn btn-success-soft btn-round me-1 mb-1 mb-md-0">
-                <i class="bi bi-person-badge-fill"></i>
-              </a>
-              <a
-           
-                class="btn btn-danger-soft btn-round me-1 mb-1 mb-md-0"
-                data-bs-toggle="tooltip"
-                data-bs-placement="top"
-                title=""
-                data-bs-original-title="Delete">
-                <i class="bi bi-trash"></i>
-              </a>
+                    (click)="voirDetails(compte.id)"
+                    class="btn btn-info-soft btn-round me-1 mb-1 mb-md-0"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title=""
+                    data-bs-original-title="Voir les détails"
+                  >
+                    <i class="bi bi-eye"></i>
+                  </a>
             </td>
           </tr>
         </tbody>

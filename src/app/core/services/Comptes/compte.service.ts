@@ -48,6 +48,15 @@ export class CompteService {
       })
     );
   }
+
+  getCompteById(id: number): Observable<any> {
+    return this.http.get<any>(`${environment.baseUrl}/compte/${id}`);
+  }
+
+  getSoldeByClientId(clientId: number): Observable<number> {
+    return this.http.get<number>(`${environment.baseUrl}/compte/solde/${clientId}`);
+  }
+
 }
 
 

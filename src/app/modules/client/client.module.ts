@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
+import { SoldeComponent } from './views/solde/solde.component';
+import { VoirDetailsComponent } from './views/voir-details/voir-details.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     ClientProfileComponent,
     ListesDesDemandesComponent,
     DemandeChequeComponent,
+    SoldeComponent,
+    VoirDetailsComponent,
  
   ],
   imports: [
